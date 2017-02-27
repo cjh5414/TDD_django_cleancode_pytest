@@ -6,6 +6,7 @@ import pytest
 def browser():
     chrome_path = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'chromedriver')
     browser = webdriver.Chrome(chrome_path)
+    browser.implicitly_wait(3)
     yield browser
     driver.quit()
 
