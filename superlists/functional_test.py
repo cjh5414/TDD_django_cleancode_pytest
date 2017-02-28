@@ -8,7 +8,7 @@ def browser():
     browser = webdriver.Chrome(chrome_path)
     browser.implicitly_wait(3)
     yield browser
-    driver.quit()
+    browser.quit()
 
 def test_can_start_a_list_and_retrieve_it_later(browser):
     # 에드스는 멋진 작업 목록 온라인 앱이 나왔다는 소식을 듣고
@@ -16,7 +16,7 @@ def test_can_start_a_list_and_retrieve_it_later(browser):
     browser.get('http://localhost:8000')
 
     # 웹 페이지 타이틀과 헤더가 'To-Do'를 표시하고 있다
-    assert 'Django' in browser.title
+    assert 'To-Do' in browser.title
 
     # 그녀는 바로 작업을 추가하기로 한다
     # "공작깃털 사기"라고 텍스트 상자에 입력한다
